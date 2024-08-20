@@ -22,39 +22,19 @@ class Roulette:
         else:
             return 'Black'
 
-    def bet(self, bet_type, amount):
-        if bet_type == "number":
-            chosen_number = int(input("Choose a number between 0 and 36: "))
-            if self.pocket_number == chosen_number:
-                return amount * 35
-            else:
-                return -amount
-        elif bet_type == "color":
-            #chosen_color = random.choice(['Red', 'Black'])
-            chosen_color = 'Red'
-            if print_output:
-                print(f"You have chosen {chosen_color}")
-            if self.color == chosen_color:
-                return amount * 2 - amount
-            else:
-                return -amount
-        elif bet_type == "odd_even":
-            chosen_type = input("Choose Odd or Even: ").capitalize()
-            if (self.pocket_number != 0 and
-               ((chosen_type == "Odd" and self.pocket_number % 2 != 0) or
-                (chosen_type == "Even" and self.pocket_number % 2 == 0))):
-                return amount * 2
-            else:
-                return -amount
+    def bet(self, amount):
+        #chosen_color = random.choice(['Red', 'Black'])
+        chosen_color = 'Red'
+        if print_output:
+            print(f"You have chosen {chosen_color}")
+        if self.color == chosen_color:
+            return amount * 2 - amount
         else:
-            if print_output:
-                print("Invalid bet type.")
-            return 0
+            return -amount
 
-# Example usage:
+
 roulette = Roulette()
 
-# Prompt user for the number of simulations and whether to print intermediate results
 num_simulations = int(input("How many simulations would you like to run? "))
 sim_no = 0
 print_output = input("Do you want to print intermediate results? (yes/no): ").strip().lower() == 'yes'
@@ -85,7 +65,7 @@ for sim in range(num_simulations):
                 print("Insufficient balance!")
             keep_playing = False
 
-        winnings = roulette.bet('color', amount)
+        winnings = roulette.bet(amount)
         roulette.spin()
         if print_output:
             print(f"The ball landed on {roulette.pocket_number} {roulette.color}.")
