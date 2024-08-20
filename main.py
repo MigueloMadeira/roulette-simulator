@@ -1,7 +1,7 @@
 import random
 
-initial_balance = 2000
-initial_bet = 2
+initial_balance = 20000
+initial_bet = 20 
 max_plays = 10000
 
 class Roulette:
@@ -88,7 +88,8 @@ for sim in range(num_simulations):
         else:
             keep_playing = True
 
-        if play_no > max_plays or balance >= initial_balance * 2:
+        if play_no > max_plays:
+            #or balance >= initial_balance * 2:
             playing = False
             if balance > initial_balance:
                 simulations_won += 1
