@@ -1,8 +1,8 @@
 import random
 
-initial_balance = 20000
+initial_balance = 2000
 initial_bet = 20 
-max_plays = 10000
+max_plays = 1000
 
 class Roulette:
     def __init__(self):
@@ -23,8 +23,8 @@ class Roulette:
             return 'Black'
 
     def bet(self, amount):
-        #chosen_color = random.choice(['Red', 'Black'])
-        chosen_color = 'Red'
+        chosen_color = random.choice(['Red', 'Black'])
+        #chosen_color = 'Red'
         if print_output:
             print(f"You have chosen {chosen_color}")
         if self.color == chosen_color:
